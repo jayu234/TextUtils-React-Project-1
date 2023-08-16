@@ -21,7 +21,7 @@ export default function Navbar(props) {
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
                                 {/* eslint-disable-next-line*/}
-                                <a className="nav-link" aria-current="page" href="#">Home</a>
+                                <a className="nav-link" aria-current="page" href="/">Home</a>
                             </li>
                             {/* <li className="nav-item">
                                 <a className="nav-a" href="/about">About</a>
