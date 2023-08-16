@@ -1,7 +1,7 @@
 import './App.css';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Input from './components/Input';
-import About from './components/About';
+// import About from './components/About';
 import Navbar from './components/Navbar';
 import Alert from './components/Alert';
 // import {
@@ -33,21 +33,30 @@ function App() {
       setAlert(null);
     }, 1700);
   };
+  useEffect(() => {
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      setTheme('dark');
+      document.body.style.backgroundColor = '#090d38';
+    } else {
+      setTheme('light');
+      document.body.style.backgroundColor = 'white';
+    }
+  }, [])
   return (
     <>
       {/* <Router> */}
-        <Navbar titleText="TextUtils" aboutText="About" theme={theme} changeMode={toggleTheme} />
-        <Alert alert={alert} />
-        {/* <Switch> */}
-          {/* <Route exact path="/about">
+      <Navbar titleText="TextUtils" aboutText="About" theme={theme} changeMode={toggleTheme} />
+      <Alert alert={alert} />
+      {/* <Switch> */}
+      {/* <Route exact path="/about">
                 <About theme={theme} />
           </Route> */}
-          {/* <Route exact path="/"> */}
-            <div className="container my-3">
-              <Input headingText="Enter your text to analyze" theme={theme} showAlert={showAlert} />
-            </div>
-          {/* </Route> */}
-        {/* </Switch> */}
+      {/* <Route exact path="/"> */}
+      <div className="container my-3">
+        <Input headingText="Enter your text to analyze" theme={theme} showAlert={showAlert} />
+      </div>
+      {/* </Route> */}
+      {/* </Switch> */}
       {/* </Router> */}
     </>
   );
